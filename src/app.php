@@ -19,9 +19,10 @@ function __autoload(string $classname) {
 
 echo sprintf("Starting...\n");
 
+$arrayofflux = [RESSOURCES_DIR . 'jobteaser.json', RESSOURCES_DIR . 'regionsjob.xml'];
 
 /* import jobs from regionsjob.xml */
-$jobsImporter = new JobsImporter(SQL_HOST, SQL_USER, SQL_PWD, SQL_DB, RESSOURCES_DIR . 'regionsjob.xml');
+$jobsImporter = new JobsImporter(SQL_HOST, SQL_USER, SQL_PWD, SQL_DB, $arrayofflux);
 $count = $jobsImporter->importJobs();
 
 echo sprintf("> %d jobs imported.\n", $count);
